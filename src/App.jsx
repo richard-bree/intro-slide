@@ -4,6 +4,24 @@ import Timeline from './components/Timeline'
 import InterestsSection from './components/InterestsSection'
 
 function App() {
+  // Image assets object
+  const imageAssets = {
+    photo1: '/src/assets/1.HEIC',
+    photo2: '/src/assets/2.HEIC',
+    photo3: '/src/assets/3.JPG',
+    photo4: '/src/assets/4.heic',
+    photo5: '/src/assets/5.HEIC',
+    photo6: '/src/assets/6.JPG',
+    photo7: '/src/assets/7.JPG',
+    photo8: '/src/assets/8.JPG',
+    photo9: '/src/assets/9.HEIC',
+    photo10: '/src/assets/10.HEIC',
+    photo11: '/src/assets/11.HEIC',
+    photo12: '/src/assets/12.jpg',
+    photo13: '/src/assets/13.jpg',
+    photo14: '/src/assets/14.JPG'
+  }
+
   const cuisineData = [
     { name: 'Other', value: 22.4, color: '#8B5CF6' },
     { name: 'Cafe', value: 12.3, color: '#06B6D4' },
@@ -25,31 +43,69 @@ function App() {
     }}>
               <div className="max-w-[1350px] h-full mx-auto bg-white/90 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden border border-white/30 flex flex-col intro-container">
         {/* Hero Section */}
-        <div className="bg-gradient-to-r from-white to-blue-50/50 px-8 py-3">
-          <div className="flex items-center space-x-8">
-            {/* Large Photo Section */}
-            <div className="flex-shrink-0">
-              <div className="w-36 h-36 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-3xl flex items-center justify-center border-2 border-blue-200/50 shadow-xl hover:shadow-2xl transition-all duration-300">
+        <div className="relative bg-gradient-to-br from-white via-blue-50/30 to-indigo-100/50 px-8 py-4 overflow-hidden">
+          {/* Decorative Background Elements */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-blue-200/20 to-purple-300/20 rounded-full blur-lg"></div>
+            <div className="absolute top-8 -left-6 w-20 h-20 bg-gradient-to-br from-indigo-200/15 to-blue-300/15 rounded-full blur-md"></div>
+            <div className="absolute bottom-0 right-1/3 w-16 h-16 bg-gradient-to-br from-purple-200/10 to-pink-300/10 rounded-full blur-sm"></div>
+          </div>
+          
+          <div className="relative flex items-center space-x-8">
+            {/* Enhanced Photo Section */}
+            <div className="flex-shrink-0 relative group">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-500/20 rounded-3xl blur-md group-hover:blur-lg transition-all duration-500"></div>
+              <div className="relative w-36 h-36 bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 rounded-3xl flex items-center justify-center border-2 border-white/60 shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-500 backdrop-blur-sm">
                 <div className="text-center">
-                                      <div className="text-5xl font-light text-blue-400 mb-2">R</div>
-                  <p className="text-xs text-blue-600 font-medium">Add your photo here</p>
+                  <div className="text-5xl font-bold bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-1.5 animate-pulse">R</div>
+                  <div className="w-6 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto mb-1.5 rounded-full"></div>
+                  <p className="text-xs text-blue-700/80 font-medium">Click to upload</p>
                 </div>
               </div>
+              {/* Floating accent dots */}
+              <div className="absolute -top-1.5 -right-1.5 w-3.5 h-3.5 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full animate-bounce shadow-lg"></div>
+              <div className="absolute -bottom-0.5 -left-0.5 w-2.5 h-2.5 bg-gradient-to-br from-green-400 to-blue-500 rounded-full animate-pulse shadow-md"></div>
             </div>
             
-            {/* Content */}
+            {/* Enhanced Content */}
             <div className="flex-1 space-y-3">
-              <div>
-                <h1 className="text-4xl font-light text-gray-900 mb-2 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">Richard</h1>
-                <p className="text-lg text-gray-700 font-light leading-relaxed">
-                  From Numbers to Code —<br/>
-                  <span className="text-blue-700">A Journey from Accounting to Engineering</span>
-                </p>
+              <div className="space-y-2">
+                <div className="flex items-center space-x-3">
+                  <h1 className="text-4xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-900 bg-clip-text text-transparent hover:from-blue-900 hover:to-purple-900 transition-all duration-300">Richard</h1>
+                  <div className="flex space-x-1">
+                    <div className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse"></div>
+                    <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                    <div className="w-1.5 h-1.5 bg-purple-400 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                  </div>
+                </div>
+                
+                <div className="relative">
+                  <p className="text-lg text-gray-700 font-medium leading-relaxed">
+                    <span className="bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">From Numbers to Code</span>
+                    <span className="mx-2 text-gray-300">•</span>
+                    <br/>
+                    <span className="bg-gradient-to-r from-blue-700 via-indigo-600 to-purple-700 bg-clip-text text-transparent font-semibold">A Journey from Accounting to Engineering</span>
+                  </p>
+                  <div className="absolute -left-3 top-0 w-0.5 h-full bg-gradient-to-b from-blue-400 to-purple-500 rounded-full opacity-30"></div>
+                </div>
               </div>
               
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl px-6 py-4 border border-blue-200/30">
-                <p className="text-lg font-semibold text-gray-900">Software Engineer at Bree</p>
-                <p className="text-base text-blue-700 mt-1">Joined June 2, 2025</p>
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-200/30 to-indigo-200/30 rounded-2xl blur-sm group-hover:blur-md transition-all duration-300"></div>
+                <div className="relative bg-gradient-to-r from-white/80 via-blue-50/60 to-indigo-50/80 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="flex items-center space-x-2">
+                        <div className="w-2.5 h-2.5 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full animate-pulse shadow-sm"></div>
+                        <p className="text-lg font-bold text-gray-900">Software Engineer at Bree</p>
+                      </div>
+                      <p className="text-base text-blue-700 mt-1 font-medium">Joined June 2, 2025</p>
+                    </div>
+                    <div className="text-right opacity-60">
+                      <div className="text-xl">🚀</div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
