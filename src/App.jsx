@@ -6,20 +6,14 @@ import InterestsSection from './components/InterestsSection'
 function App() {
   // Image assets object
   const imageAssets = {
-    photo1: '/src/assets/1.HEIC',
-    photo2: '/src/assets/2.HEIC',
-    photo3: '/src/assets/3.JPG',
-    photo4: '/src/assets/4.heic',
-    photo5: '/src/assets/5.HEIC',
-    photo6: '/src/assets/6.JPG',
-    photo7: '/src/assets/7.JPG',
-    photo8: '/src/assets/8.JPG',
-    photo9: '/src/assets/9.HEIC',
-    photo10: '/src/assets/10.HEIC',
-    photo11: '/src/assets/11.HEIC',
-    photo12: '/src/assets/12.jpg',
-    photo13: '/src/assets/13.jpg',
-    photo14: '/src/assets/14.JPG'
+    photo1: '/src/assets/1.jpg',
+    photo2: '/src/assets/2.jpeg',
+    photo3: '/src/assets/3.jpg',
+    photo4: '/src/assets/4.jpg',
+    photo5: '/src/assets/5.jpg',
+    photo6: '/src/assets/6.jpg',
+    photo7: '/src/assets/7.jpg',
+    photo8: '/src/assets/8.jpg',
   }
 
   const cuisineData = [
@@ -55,12 +49,12 @@ function App() {
             {/* Enhanced Photo Section */}
             <div className="flex-shrink-0 relative group">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-500/20 rounded-3xl blur-md group-hover:blur-lg transition-all duration-500"></div>
-              <div className="relative w-36 h-36 bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 rounded-3xl flex items-center justify-center border-2 border-white/60 shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-500 backdrop-blur-sm">
-                <div className="text-center">
-                  <div className="text-5xl font-bold bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-1.5 animate-pulse">R</div>
-                  <div className="w-6 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto mb-1.5 rounded-full"></div>
-                  <p className="text-xs text-blue-700/80 font-medium">Click to upload</p>
-                </div>
+              <div className="relative w-36 h-36 bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 rounded-3xl flex items-center justify-center border-2 border-white/60 shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-500 backdrop-blur-sm overflow-hidden">
+                <img 
+                  src={imageAssets.photo1} 
+                  alt="Profile" 
+                  className="w-full h-full object-cover rounded-3xl"
+                />
               </div>
               {/* Floating accent dots */}
               <div className="absolute -top-1.5 -right-1.5 w-3.5 h-3.5 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full animate-bounce shadow-lg"></div>
@@ -148,23 +142,28 @@ function App() {
                 
                 <div className="flex-1 grid grid-cols-3 gap-1">
                   {/* Featured large photo */}
-                  <div className="col-span-3 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-lg flex items-center justify-center border border-blue-200/50 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer group">
-                    <div className="text-center">
-                      <div className="text-lg text-blue-400 mb-1 group-hover:scale-110 transition-transform">📸</div>
-                      <p className="text-xs text-blue-600 font-medium">Featured Photo</p>
-                    </div>
+                  <div className="col-span-3 h-20 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-lg flex items-center justify-center border border-blue-200/50 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer group overflow-hidden">
+                    <img 
+                      src={imageAssets.photo2} 
+                      alt="Featured" 
+                      className="w-full h-full object-cover rounded-lg"
+                    />
                   </div>
                   
                   {/* Regular photo slots */}
                   {Array.from({ length: 6 }, (_, i) => (
-                    <div key={i} className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-md flex items-center justify-center border border-gray-200/50 hover:shadow-sm hover:scale-105 transition-all duration-200 cursor-pointer group">
-                      <div className="text-gray-400 text-xs group-hover:text-gray-600 transition-colors">📷</div>
+                    <div key={i} className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-md flex items-center justify-center border border-gray-200/50 hover:shadow-sm hover:scale-105 transition-all duration-200 cursor-pointer group overflow-hidden aspect-square">
+                      <img 
+                        src={imageAssets[`photo${i + 3}`]} 
+                        alt={`Gallery ${i + 1}`} 
+                        className="w-full h-full object-cover rounded-md"
+                      />
                     </div>
                   ))}
                 </div>
                 
                 <div className="mt-1 text-xs text-gray-500 text-center flex-shrink-0">
-                  <span>0 / 7 photos</span>
+                  <span>7 / 7 photos</span>
                 </div>
               </div>
             </div>
