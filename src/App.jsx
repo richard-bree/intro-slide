@@ -6,14 +6,14 @@ import InterestsSection from './components/InterestsSection'
 function App() {
   // Image assets object
   const imageAssets = {
-    photo1: '/src/assets/1.jpg',
-    photo2: '/src/assets/2.jpeg',
-    photo3: '/src/assets/3.jpg',
-    photo4: '/src/assets/4.jpg',
-    photo5: '/src/assets/5.jpg',
-    photo6: '/src/assets/6.jpg',
-    photo7: '/src/assets/7.jpg',
-    photo8: '/src/assets/8.jpg',
+    photo1: './assets/1.jpg',
+    photo2: './assets/2.jpeg',
+    photo3: './assets/3.jpg',
+    photo4: './assets/4.jpg',
+    photo5: './assets/5.jpg',
+    photo6: './assets/6.jpg',
+    photo7: './assets/7.jpg',
+    photo8: './assets/8.jpg',
   }
 
   const cuisineData = [
