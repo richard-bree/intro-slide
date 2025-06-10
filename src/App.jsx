@@ -63,29 +63,52 @@ function App() {
           </div>
 
           {/* Bottom Row */}
-          <div className="grid grid-cols-5 gap-2 flex-1">
+          <div className="grid grid-cols-6 gap-2 flex-1">
               {/* Interests */}
               <div className="col-span-2">
                 <InterestsSection />
               </div>
 
-              {/* Fun Fact */}
-              <div className="col-span-1 bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-2 border border-orange-200/30 shadow-sm">
-                <div className="text-center space-y-1 h-full flex flex-col justify-center">
-                  <div className="text-xl animate-bounce">🍽️</div>
-                  <div>
-                    <div className="text-lg font-light text-orange-600">536</div>
-                    <p className="text-xs text-orange-700 font-medium">Unique Restaurants</p>
-                    <p className="text-xs text-orange-600">in BC since 2020</p>
+              {/* Pie Chart with Restaurant Info */}
+              <div className="col-span-2 bg-gradient-to-br from-white to-purple-50 rounded-2xl p-2 border border-purple-200/30 shadow-sm flex flex-col">
+                <div className="flex justify-between items-center mb-1 flex-shrink-0">
+                  <h3 className="text-xs font-medium text-gray-900">Cuisine Preferences</h3>
+                  <div className="text-right">
+                    <div className="text-sm font-semibold text-purple-600">536</div>
+                    <p className="text-xs text-purple-600">Restaurants since 2020</p>
                   </div>
+                </div>
+                <div className="flex-1 min-h-0">
+                  <PieChart data={cuisineData} />
                 </div>
               </div>
 
-              {/* Pie Chart */}
-              <div className="col-span-2 bg-gradient-to-br from-white to-purple-50 rounded-2xl p-2 border border-purple-200/30 shadow-sm flex flex-col">
-                <h3 className="text-xs font-medium text-gray-900 mb-1 flex-shrink-0">Cuisine Preferences</h3>
-                <div className="flex-1 min-h-0">
-                  <PieChart data={cuisineData} />
+              {/* Photo Gallery */}
+              <div className="col-span-2 bg-gradient-to-br from-white to-slate-50 rounded-2xl p-2 border border-slate-200/30 shadow-sm flex flex-col">
+                <div className="flex items-center justify-between mb-1 flex-shrink-0">
+                  <h3 className="text-xs font-medium text-gray-900">Photo Gallery</h3>
+                  <span className="text-xs text-gray-500">Add photos</span>
+                </div>
+                
+                <div className="flex-1 grid grid-cols-3 gap-1">
+                  {/* Featured large photo */}
+                  <div className="col-span-3 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-lg flex items-center justify-center border border-blue-200/50 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer group">
+                    <div className="text-center">
+                      <div className="text-lg text-blue-400 mb-1 group-hover:scale-110 transition-transform">📸</div>
+                      <p className="text-xs text-blue-600 font-medium">Featured Photo</p>
+                    </div>
+                  </div>
+                  
+                  {/* Regular photo slots */}
+                  {Array.from({ length: 6 }, (_, i) => (
+                    <div key={i} className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-md flex items-center justify-center border border-gray-200/50 hover:shadow-sm hover:scale-105 transition-all duration-200 cursor-pointer group">
+                      <div className="text-gray-400 text-xs group-hover:text-gray-600 transition-colors">📷</div>
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="mt-1 text-xs text-gray-500 text-center flex-shrink-0">
+                  <span>0 / 7 photos</span>
                 </div>
               </div>
             </div>
