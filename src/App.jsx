@@ -20,8 +20,10 @@ function App() {
   ]
 
   return (
-    <div className="h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 p-3 overflow-hidden">
-      <div className="max-w-[1350px] h-full mx-auto bg-white/80 backdrop-blur-sm rounded-3xl shadow-lg overflow-hidden border border-white/20 flex flex-col intro-container">
+    <div className="h-screen py-3 px-px overflow-hidden" style={{
+      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%)'
+    }}>
+              <div className="max-w-[1350px] h-full mx-auto bg-white/90 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden border border-white/30 flex flex-col intro-container">
         {/* Hero Section */}
         <div className="bg-gradient-to-r from-white to-blue-50/50 px-8 py-3">
           <div className="flex items-center space-x-8">
