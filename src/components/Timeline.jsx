@@ -33,27 +33,27 @@ const Timeline = () => {
   ]
 
   return (
-    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 h-full">
-      <h3 className="text-2xl font-bold text-gray-800 mb-6">🗺️ Career Timeline</h3>
+    <div className="h-full">
+      <h3 className="text-sm font-medium text-gray-900 mb-2">Career Timeline</h3>
       <div className="relative">
         {/* Timeline line */}
-        <div className="absolute top-8 left-8 right-8 h-1 bg-gray-300 rounded"></div>
+        <div className="absolute top-5 left-5 right-5 h-0.5 bg-gradient-to-r from-blue-200 via-purple-200 to-orange-200"></div>
         
         {/* Timeline items */}
         <div className="flex justify-between">
           {timelineData.map((item, index) => (
-            <div key={index} className="flex flex-col items-center relative">
+            <div key={index} className="flex flex-col items-center relative group">
               {/* Icon */}
-              <div className={`w-16 h-16 ${item.color} rounded-full flex items-center justify-center text-2xl mb-3 shadow-lg relative z-10`}>
+              <div className={`w-10 h-10 ${item.color} rounded-xl flex items-center justify-center text-base mb-1 border-2 border-white shadow-md relative z-10 transform transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg`}>
                 {item.icon}
               </div>
               
               {/* Content */}
               <div className="text-center">
-                <p className="text-sm font-medium text-gray-600">{item.title}</p>
-                <p className="text-lg font-bold text-gray-800">{item.location}</p>
+                <p className="text-xs text-gray-500 font-medium">{item.title}</p>
+                <p className="text-sm font-semibold text-gray-900">{item.location}</p>
                 {item.date && (
-                  <p className="text-xs text-gray-500 mt-1">{item.date}</p>
+                  <p className="text-xs text-gray-400 mt-0.5">{item.date}</p>
                 )}
               </div>
             </div>

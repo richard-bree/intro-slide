@@ -20,53 +20,73 @@ function App() {
   ]
 
   return (
-    <div className="min-h-screen gradient-bg flex items-center justify-center p-4">
-      <div className="max-w-[1400px] w-full bg-white rounded-2xl card-shadow overflow-hidden">
-        {/* Header Section */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8">
+    <div className="h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 p-3 overflow-hidden">
+      <div className="max-w-[1350px] h-full mx-auto bg-white/80 backdrop-blur-sm rounded-3xl shadow-lg overflow-hidden border border-white/20 flex flex-col intro-container">
+        {/* Hero Section */}
+        <div className="bg-gradient-to-r from-white to-blue-50/50 px-8 py-3">
           <div className="flex items-center space-x-8">
-            <div className="w-32 h-32 bg-white/20 rounded-full flex items-center justify-center text-6xl font-bold">
-              R
+            {/* Large Photo Section */}
+            <div className="flex-shrink-0">
+              <div className="w-36 h-36 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-3xl flex items-center justify-center border-2 border-blue-200/50 shadow-xl hover:shadow-2xl transition-all duration-300">
+                <div className="text-center">
+                                      <div className="text-5xl font-light text-blue-400 mb-2">R</div>
+                  <p className="text-xs text-blue-600 font-medium">Add your photo here</p>
+                </div>
+              </div>
             </div>
-            <div className="flex-1">
-              <h1 className="text-5xl font-bold mb-2">Richard</h1>
-              <p className="text-xl mb-4 opacity-90">From Numbers to Code — A Journey from Accounting to Engineering</p>
-              <div className="bg-white/20 rounded-lg px-4 py-2 inline-block">
-                <p className="text-lg font-semibold">Software Engineer at Bree</p>
-                <p className="text-sm opacity-90">Joined: June 2, 2025</p>
+            
+            {/* Content */}
+            <div className="flex-1 space-y-3">
+              <div>
+                <h1 className="text-4xl font-light text-gray-900 mb-2 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">Richard</h1>
+                <p className="text-lg text-gray-700 font-light leading-relaxed">
+                  From Numbers to Code —<br/>
+                  <span className="text-blue-700">A Journey from Accounting to Engineering</span>
+                </p>
+              </div>
+              
+              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl px-6 py-4 border border-blue-200/30">
+                <p className="text-lg font-semibold text-gray-900">Software Engineer at Bree</p>
+                <p className="text-base text-blue-700 mt-1">Joined June 2, 2025</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Main Content Grid */}
-        <div className="p-8 grid grid-cols-12 gap-6 min-h-[500px]">
-          {/* Career Timeline */}
-          <div className="col-span-7">
+        {/* Main Content */}
+        <div className="px-8 pb-2 space-y-2 flex-1 flex flex-col">
+                    {/* Career Timeline */}
+          <div className="bg-gradient-to-br from-white to-slate-50 rounded-2xl p-2 border border-slate-200/50 shadow-sm">
             <Timeline />
           </div>
 
-          {/* Interests */}
-          <div className="col-span-5">
-            <InterestsSection />
-          </div>
+          {/* Bottom Row */}
+          <div className="grid grid-cols-5 gap-2 flex-1">
+              {/* Interests */}
+              <div className="col-span-2">
+                <InterestsSection />
+              </div>
 
-          {/* Fun Fact */}
-          <div className="col-span-5 bg-gradient-to-br from-orange-50 to-red-50 rounded-xl p-6 border-l-4 border-orange-400">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">🍽️ Fun Fact</h3>
-            <p className="text-xl text-gray-700 leading-relaxed">
-              Visited <span className="font-bold text-orange-600 text-2xl">536 unique restaurants</span> in British Columbia since 2020!
-            </p>
-            <p className="text-sm text-gray-600 mt-3 italic">That's about 1 new restaurant every 3 days!</p>
-          </div>
+              {/* Fun Fact */}
+              <div className="col-span-1 bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-2 border border-orange-200/30 shadow-sm">
+                <div className="text-center space-y-1 h-full flex flex-col justify-center">
+                  <div className="text-xl animate-bounce">🍽️</div>
+                  <div>
+                    <div className="text-lg font-light text-orange-600">536</div>
+                    <p className="text-xs text-orange-700 font-medium">Unique Restaurants</p>
+                    <p className="text-xs text-orange-600">in BC since 2020</p>
+                  </div>
+                </div>
+              </div>
 
-          {/* Pie Chart */}
-          <div className="col-span-7 bg-gray-50 rounded-xl p-6">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">🥘 Cuisine Breakdown</h3>
-            <div className="h-64">
-              <PieChart data={cuisineData} />
+              {/* Pie Chart */}
+              <div className="col-span-2 bg-gradient-to-br from-white to-purple-50 rounded-2xl p-2 border border-purple-200/30 shadow-sm flex flex-col">
+                <h3 className="text-xs font-medium text-gray-900 mb-1 flex-shrink-0">Cuisine Preferences</h3>
+                <div className="flex-1 min-h-0">
+                  <PieChart data={cuisineData} />
+                </div>
+              </div>
             </div>
-          </div>
         </div>
       </div>
     </div>

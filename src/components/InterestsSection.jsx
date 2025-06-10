@@ -25,24 +25,25 @@ const InterestsSection = () => {
   ]
 
   return (
-    <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 h-full">
-      <h3 className="text-2xl font-bold text-gray-800 mb-6">⚡ Interests</h3>
-      <div className="grid grid-cols-2 gap-4">
+    <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-2 border border-green-200/30 shadow-sm h-full">
+      <h3 className="text-sm font-medium text-gray-900 mb-2">Interests</h3>
+      <div className="space-y-1">
         {interests.map((interest, index) => (
           <div
             key={index}
-            className={`${interest.color} rounded-lg p-4 text-center transform hover:scale-105 transition-transform duration-200`}
+            className={`flex items-center space-x-2 p-1.5 ${interest.color} rounded-lg border border-white/50 transform transition-all duration-200 hover:scale-105 hover:shadow-md`}
           >
-            <div className="text-3xl mb-2">{interest.icon}</div>
-            <p className="font-semibold text-sm">{interest.name}</p>
+            <div className="text-base flex-shrink-0">{interest.icon}</div>
+            <p className="font-medium text-xs">{interest.name}</p>
           </div>
         ))}
       </div>
       
       {/* Additional details for watersports */}
-      <div className="mt-4 bg-white/50 rounded-lg p-3">
-        <p className="text-xs text-gray-600 text-center">
-          <span className="font-medium">Watersports:</span> Windsurfing • Sailing • Kayaking • Paddleboarding
+      <div className="mt-2 p-1.5 bg-white/60 rounded-lg border border-white/50 backdrop-blur-sm">
+        <p className="text-xs text-gray-700 leading-tight">
+          <span className="font-semibold text-green-800">Watersports:</span><br/>
+          <span className="text-green-700">Windsurfing • Sailing • Kayaking</span>
         </p>
       </div>
     </div>

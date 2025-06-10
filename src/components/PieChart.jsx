@@ -3,7 +3,7 @@ import React from 'react'
 const PieChart = ({ data }) => {
   const size = 200
   const center = size / 2
-  const radius = 80
+  const radius = 85
 
   // Calculate cumulative angles
   let cumulativePercentage = 0
@@ -42,10 +42,10 @@ const PieChart = ({ data }) => {
   }
 
   return (
-    <div className="flex items-center h-full">
-      {/* SVG Chart */}
-      <div className="flex-shrink-0">
-        <svg width={size} height={size} className="drop-shadow-sm">
+    <div className="h-full flex flex-col">
+      {/* Pie Chart */}
+      <div className="flex-1 flex items-center justify-center">
+        <svg width={size} height={size} className="drop-shadow-lg">
           {slices.map((slice, index) => {
             const labelPos = getLabelPosition(slice.startAngle, slice.endAngle)
             return (
@@ -54,15 +54,16 @@ const PieChart = ({ data }) => {
                   d={createPath(slice.startAngle, slice.endAngle, radius)}
                   fill={slice.color}
                   stroke="white"
-                  strokeWidth="2"
+                  strokeWidth="3"
+                  className="hover:opacity-80 transition-opacity duration-200"
                 />
-                {slice.value > 4 && (
+                {slice.value > 5 && (
                   <text
                     x={labelPos.x}
                     y={labelPos.y}
                     textAnchor="middle"
                     dominantBaseline="middle"
-                    className="text-xs font-bold fill-white"
+                    className="text-xs font-bold fill-white drop-shadow-sm"
                   >
                     {slice.value}%
                   </text>
@@ -73,17 +74,20 @@ const PieChart = ({ data }) => {
         </svg>
       </div>
 
-      {/* Legend */}
-      <div className="ml-6 flex-1">
-        <div className="grid grid-cols-2 gap-2 text-sm">
+      {/* Legend below */}
+      <div className="flex-shrink-0 mt-2">
+        <div className="grid grid-cols-2 gap-1 text-xs">
           {data.map((item, index) => (
-            <div key={index} className="flex items-center space-x-2">
+            <div 
+              key={index} 
+              className="flex items-center space-x-1 hover:bg-white/50 rounded px-1 py-0.5 transition-colors duration-200"
+            >
               <div
-                className="w-3 h-3 rounded-sm flex-shrink-0"
+                className="w-2 h-2 rounded-full flex-shrink-0 ring-1 ring-white/50"
                 style={{ backgroundColor: item.color }}
               ></div>
-              <span className="text-gray-700 truncate">{item.name}</span>
-              <span className="text-gray-600 font-medium">{item.value}%</span>
+              <span className="text-gray-700 truncate font-medium text-xs">{item.name}</span>
+              <span className="text-gray-500 text-xs font-semibold">{item.value}%</span>
             </div>
           ))}
         </div>
